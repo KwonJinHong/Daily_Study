@@ -44,7 +44,7 @@ public class DFS_Recursion {
 	
 	static void dfs(int nodeIndex) {
 		// 방문 처리
-		vistied[nodeIndex] = true;
+		visited[nodeIndex] = true;
 		
 		// 방문 노드 출력
 		System.out.print(nodeIndex + " -> ");
@@ -52,7 +52,7 @@ public class DFS_Recursion {
 		// 방문한 노드에 인접한 노드 찾기
 		for (int node : graph[nodeIndex]) {
 			// 인접한 노드가 방문한 적이 없다면 DFS 수행
-			if(!vistied[node]) {
+			if(!visited[node]) {
 				dfs(node);
 			}
 		}
@@ -82,7 +82,7 @@ public class DFS_stack {
 		// 시작 노드를 스택에 넣어줍니다.
 		stack.push(1);
 		// 시작 노드 방문처리
-		vistied[1] = true;
+		visited[1] = true;
 		
 		// 스택이 비어있지 않으면 계속 반복
 		while(!stack.isEmpty()) {
