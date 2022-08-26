@@ -21,7 +21,7 @@
 ### 3. 기본 문법 알아보기
 #### 3-1. 설정
 ##### :memo: **xmlns:th=""**
-```htmlembedded
+```html
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 ```
 -  타임리프의 th 속성을 사용하기 위해 선언된 네임스페이스이다.
