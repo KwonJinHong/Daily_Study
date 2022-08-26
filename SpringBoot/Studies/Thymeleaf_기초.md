@@ -31,13 +31,13 @@
 #### 3-2. 기본 기능
 
 ##### :memo: **th:text="${}"**
-```htmlembedded
+```html
 <div th:text="${data}"></div>
 ```
 -  JSP의 EL 표현식인 ${}와 마찬가지로 ${} 표현식을 사용해서 컨트롤러에서 전달받은 데이터에 접근할 수 있다.
 
 ##### :memo: **th:href="@{}"**
-```htmlembedded
+```html
 <body>
   <a th:hrf="@{/boardListPage?currentPageNum={page}}"></a>
 </body>
@@ -46,13 +46,13 @@
 -  괄호안에 클릭시 이동하고자 하는 url을 입력하면 된다.
 
 ##### :memo: **th:with=${}**
-```htmlembedded
+```html
 <div th:with=”userId=${number}” th:text=”${usesrId}”>
 ```
 -  변수 형태의 값을 재정의하는 속성이다. 즉, `th:with`를 이용하여 새로운 변수값을 생성할 수 있다.
 
 ##### :memo: **th:value="${}"**
-```htmlembedded
+```html
 <input type="text" id="userId" th:value="${userId} + '의 이름은 ${userName}"/>
 ```
 -  input의 vaule에 값을 삽입할 때 사용한다.
@@ -60,7 +60,7 @@
 <br></br>
 #### 3-3. Layout
 ##### :memo: **th:block**
-```htmlembedded
+```html
 <html lagn="ko" 
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
@@ -76,7 +76,7 @@
 -  해당 기능은 동적인 처리가 필요할 때 사용된다. 주로 layout 기능이나 switch에 사용이 많이 된다.
 
 ##### :memo: **th:fragment**
-```htmlembedded
+```html
 <head th:fragment="head(title)"> // 매개 변수를 받을 수 있다!
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -94,7 +94,7 @@
 -  `th:replace"[파일경로 :: 조각 이름]"` 을 통해 HTML 파일에서 삽입할 수 있다.
 
 ##### :memo: **th:replace="[파일 경로 :: fragment 이름]"**
-```htmlembedded
+```html
 <head th:replace="fragments/common :: head('게시판')">
 ```
 -  JSP의 <include> 태그와 유사한 속성이다.
@@ -103,7 +103,7 @@
 -  insert와는 다르게 완전하게 대체한다.
 
 ##### :memo: **th:insert="[파일 경로 :: fragment 이름]"**
-```htmlembedded
+```html
 <head th:insert="fragments/common :: head('게시판')">
 ```
 -  `insert`는 태그 내로 fragment를 삽입하는 방법이다. `replace`는 완전하게 대체하기 때문에 `replace` 태그가 입력된 `<div>`가 사라지고 `fragment`로 조각화한 코드가 완전히 대체된다. 하지만 `insert`는 `insert`가 입력된 `<div>`안에 `fragment`를 삽입하는 개념이기 때문에 `<div>`안에 조각화한 코드가 삽입된다.
@@ -113,7 +113,7 @@
 
 #### 3-4. Form
 ##### :gem: `예시코드`
-```htmlembedded
+```html
 <body>
   <form th:action="@{/join}" th:object="${joinForm}" method="post">
     <input type="text" id="userId" th:field="*{userId}" >
@@ -139,7 +139,7 @@
 #### 3-5. 조건문과 반복문
 ##### :memo: **th:if="${}"**
 ##### :memo: **th:unless="${}"**
-```htmlembedded
+```html
  <span class="sr-only" th:if="${menu} == 'home'">(current)</span>
  <span class="sr-only" th:unless="${menu} == 'board'"></span>
 ```
@@ -147,7 +147,7 @@
 - `th:unless`는 일반적인 언어의 `else` 문과는 달리 `th:if`에 들어가는 조건과 동일한 조건을 지정해야 한다.
 
 ##### :memo: **th:each="변수 : ${list}"**
-```htmlembedded
+```html
 <body>
   <li th:each="pageButton" : ${#numbers.sequece(paging.firstPage, paging.lastPage)}></li>
 </body>
@@ -156,7 +156,7 @@
 - `${list}` 로 받아온 값을 변수로 하나씩 가져온다는 뜻으로, 변수의 이름은 임의대로 지정 가능하다.
 
 ##### :memo: **th:switch, th:case**
-```htmlembedded
+```html
 <th:block th:switch="${userNum}"> 
   <span th:case="1">권한1</span> 
   <span th:case="2">권한2</span> 
